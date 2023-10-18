@@ -1,31 +1,39 @@
 * {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     color: black; 
     letter-spacing: 0.1px;
    }
 
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 table { 
+    grid-column-start: 2;
+    grid-column-end: 2;
     background-color:#C1C8C9;
-    max-width: 290px;
+    max-width: 300px;
     position: relative; 
-    margin: auto; 
+    margin: ; 
     outline: 1.5px outset;
 }
 
 th {
     background-color: #050DA6;
-    max-width: 290px;
-    height: 12px;
+    max-width: 300px;
+    height: 11px;
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 12px;
     text-align: left;
     padding: 3px;
 }
 
 td {
-    padding: 20px 18px;
+    padding: 22px 18px;
     text-align: left;
 
     
