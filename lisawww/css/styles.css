@@ -1,49 +1,92 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    color: black; 
-    letter-spacing: 0.1px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.4px;
+    line-height: 1.30;
+    box-sizing: border-box;
+    font-weight: 315;
    }
 
-
-.grid-container {
+.grid {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template: 0.40fr 2fr 0.35fr / 1fr;
 }
 
-table { 
-    grid-column-start: 2;
-    grid-column-end: 2;
-    background-color:#C1C8C9;
-    max-width: 300px;
-    position: relative; 
-    outline: 1.5px outset;
+.logo {
+  grid-area: 1 / 1 / 1 / 1;
+  display: flex;
+  font-weight: 300;
+  justify-content: left;
 }
 
-th {
-    background-color: #050DA6;
-    max-width: 300px;
-    height: 11px;
-    color: white;
-    font-weight: normal;
-    font-size: 12px;
-    text-align: left;
-    padding: 3px;
+.logo h1 {
+  margin: 0;
+  font-weight: 400;
 }
 
-td {
-    padding: 22px 18px;
-    text-align: left;
-
-    
+.aww {
+  margin: 0px;
+  font-weight: 400;
 }
 
-/* #close {
-    font-size: 14px;
-    font-weight: bold;
-    margin: -5px 5px;
-    background-color: #C1C8C9;
-    border: 1 px solid black;
-    float: right;
-    padding-bottom: -5px;
-} */
+.aww:hover {
+  font-size: 40px;
+  font-weight: 600;
+  font-style: italic;
+  font-family: cursive;
+}
+
+.menu {
+  grid-area: 1 / 1 / 1 / 1;
+  font-weight: 300;
+  display: flex;
+  justify-content: right;
+}
+
+.menu li {
+  list-style: none;
+  line-height: 1.40;
+  display: inline-block;
+  margin-right: 0px;
+}
+
+.info {
+  grid-area: 2 / 1 / 2 / 1;
+  display: grid;
+}
+
+.info h1 {
+    font-size: max(18px,min(2.5vw,48px));
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+p, h1, li {
+  font-size: max(18px,min(1.9vw,48px));
+}
+
+h1 {
+  font-weight: normal;
+}
+
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: red;
+}
+
+@media only screen and (min-resolution: 150dpi) {
+  /* CSS for high resolution screens */
+}
