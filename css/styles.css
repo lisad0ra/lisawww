@@ -16,7 +16,7 @@
   display: flex;
   font-weight: 300;
   justify-content: left;
-  font-size: max(16px,min(2.5vw,35px));
+  font-size: max(16px,min(2.1vw,30px));
 }
 
 .info {
@@ -65,7 +65,7 @@
   line-height: 1.25;
   display: inline-block;
   margin-right: 0px;
-  font-size: max(16px,min(1.9vw,35px));
+  font-size: max(16px,min(2.1vw,30px));
 }
 
 .mail {
@@ -79,7 +79,7 @@
 
 
 p, h1, li {
-  font-size: max(18px,min(1.9vw,35px));
+  font-size: max(16px,min(2.1vw,30px));
 }
 
 a:link {
