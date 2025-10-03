@@ -1,40 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>lisa wigum kjærås</title>
-        <meta name="keywords" content="design, graphic, designer, grafisk, visuell, kommunikasjon, communicator, visual, lisa, wigum, kjærås">
-        <link rel="stylesheet" href="css/styles.css" type="text/css" >
-        <link rel="icon" type="image/x-icon" href="favicon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En veldig kul nettside</title>
+  <meta name="keywords" content="design, graphic, designer, grafisk, visuell, kommunikasjon, communicator, visual, lisa, wigum, kjærås">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .diary-section {
+      margin-top: 4cm; /* ca 5 cm under logoen */
+      max-width: 600px;
+      margin-left: 0;  /* venstrejustert */
+      font-family: inherit; /* samme font som mail-knappen */
+    }
+    .diary-entry {
+     /* border-bottom: 1px solid #ccc;*/
+      padding: 1em 0;
+    }
+    .diary-entry h3 {
+      font-size: 1rem;
+      margin: 0;
+      opacity: 0.7;
+    }
+    .diary-entry p {
+      margin: 0.5em 0 0 0;
+      line-height: 1.5;
+    }
+  </style>
 </head>
+
 <body>
   <main>
     <div class="grid">
-                <div class="logo">lis<span class="a">a</span><span class="w">www </span><div class="info">&nbsp;under construction</div><!--<p class="open">24/7</p>!--></div>
-               <!--- <div class="menu">
-                    <div class="mail"><li><a href="mailto: lisawigum@gmail.com>"> lisawigum@gmail.com, </a></li></div>
-                    <li><a href="https://www.linkedin.com/in/lisawigum" target="_blank">linkedin</a></li>
-                </div>-->
-                <p> please wait while I <br>
-                    learn how to code <br>
-                    and script<br>
-                    sing<br>
-                    make my own font<br>  
-                    have the confidence of a mediocre white man<br>
-                    plaster a wall<br>
-                    get a firm butt<br>
-                    make a budget<br>
-                    and stick to it<br>
-                    become more present<br>
-                    quit sugar<br>
-                    set healthy boundaries<br> 
-                    go to bed at a reasonable hour<br> 
-                    make a table<br> 
-                    focus on one thing at a time.<br>
-                     </p>
-            </div>
-    </main>  
+      <div class="logo-container">
+        <div class="logo">
+          <span id="logo-text">Bare Lisa</span>
+        </div>
+        <div class="info">&nbsp;</div>  
+      </div>                     
+      <div class="menu">
+        <li><a href="mailto:lisawigum@gmail.com" class="email-button">mail (og sms) er helt ok</a></li>
+      </div>
+    </div>
+
+    <!-- Dagbokseksjon -->
+    <section class="diary-section" id="diary-entries">
+      <!-- Nyeste innlegg legges øverst -->
+
+      <article class="diary-entry">
+        <h3>3. oktober, 2025</h3>
+        <p>Hallo, internett!! Det er meg. Lisa.</p>
+      </article>
+
+
+    </section>
+  </main>  
+
+  <script>
+  // Logo-animasjonen
+  window.addEventListener('DOMContentLoaded', () => {
+    const logo = document.getElementById('logo-text');
+
+    const texts = [
+      "lisa wigum kjærås", 
+      "relasjonsbygger", 
+      "reality-entusiast", 
+      "problemløser", 
+      "hobbypsykolog", 
+      "statist", 
+      "feminist", 
+      "mosjonist", 
+      "lilleskje", 
+      "storeskje", 
+      "skuespiller?", 
+      "komiker??", 
+      "programleder???", 
+      "radiovertinne????", 
+      "din nye kollega?????"
+    ];
+
+    const interval = 800;  
+    const scrambleDuration = 400; 
+    const scrambleInterval = 30; 
+    let index = 0;
+
+    const randomChar = () => {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      return chars.charAt(Math.floor(Math.random() * chars.length));
+    };
+
+    const scrambleThenReveal = (newText) => {
+      const original = newText;
+      const start = Date.now();
+
+      return new Promise((resolve) => {
+        const intervalId = setInterval(() => {
+          logo.textContent = original.split('').map(() => randomChar()).join('');
+          if (Date.now() - start >= scrambleDuration) {
+            clearInterval(intervalId);
+            logo.textContent = original;
+            logo.classList.add('bounce');
+            setTimeout(() => {
+              logo.classList.remove('bounce');
+              resolve();
+            }, 300);
+          }
+        }, scrambleInterval);
+      });
+    };
+
+    const startLoop = async () => {
+      while (true) {
+        await scrambleThenReveal(texts[index]);
+        index = (index + 1) % texts.length;
+        await new Promise(r => setTimeout(r, interval));
+      }
+    };
+
+    startLoop();
+  });
+  </script>
 </body>
 </html>
-
-<!--1 em is equal to 16px (default size of browser) if not stated otherwise, so 2 ems equal 32 px etc. -->
