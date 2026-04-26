@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>En veldig kul nettside</title>
-  <meta name="keywords" content="design, graphic, designer, grafisk, visuell, kommunikasjon, communicator, visual, lisa, wigum, kjærås">
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <title>L.W.K.</title>
+  <meta name="keywords" content="writing, skrive, selvutvikling, vekst, personlig, blog, blogg, design, graphic, designer, grafisk, visuell, kommunikasjon, communicator, visual, lisa, wigum, kjærås">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .diary-section {
-      margin-top: 4cm; /* ca 5 cm under logoen */
-      max-width: 600px;
-      margin-left: 0;  /* venstrejustert */
-      font-family: inherit; /* samme font som mail-knappen */
-    }
-    .diary-entry {
-     /* border-bottom: 1px solid #ccc;*/
-      padding: 1em 0;
-    }
-    .diary-entry h3 {
-      font-size: 1rem;
-      margin: 0;
-      opacity: 0.7;
-    }
-    .diary-entry p {
-      margin: 0.5em 0 0 0;
-      line-height: 1.5;
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
 <body>
@@ -33,90 +18,88 @@
     <div class="grid">
       <div class="logo-container">
         <div class="logo">
-          <span id="logo-text">Bare Lisa</span>
+          <span id="logo-text"></span><span id="cursor" class="cursor blinking">|</span>
         </div>
         <div class="info">&nbsp;</div>  
       </div>                     
+
       <div class="menu">
         <li><a href="mailto:lisawigum@gmail.com" class="email-button">mail (og sms) er helt ok</a></li>
       </div>
     </div>
 
-    <!-- Dagbokseksjon -->
-    <section class="diary-section" id="diary-entries">
-      <!-- Nyeste innlegg legges øverst -->
-
+    <section class="diary-section">
       <article class="diary-entry">
         <h3>3. oktober, 2025</h3>
         <p>Hallo, internett!! Det er meg. Lisa.</p>
       </article>
-
-
     </section>
   </main>  
 
-  <script>
-  // Logo-animasjonen
-  window.addEventListener('DOMContentLoaded', () => {
-    const logo = document.getElementById('logo-text');
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const logo = document.getElementById('logo-text');
+  const cursor = document.getElementById('cursor');
 
-    const texts = [
-      "lisa wigum kjærås", 
-      "relasjonsbygger", 
-      "problemløser", 
-      "hobbypsykolog", 
-      "statist", 
-      "feminist", 
-      "mosjonist", 
-      "lilleskje", 
-      "storeskje", 
-      "skuespiller (ish)", 
-      "komiker?", 
-      "radiovertinne?",
-      "programleder??", 
-      "din nye samarbeidspartner???"
-    ];
+  // 1: skriv "Lisaw" raskt
+  const fastText = "Lisaw";
+  let i = 0;
 
-    const interval = 800;  
-    const scrambleDuration = 400; 
-    const scrambleInterval = 30; 
-    let index = 0;
+  const typeFast = () => {
+    if (i < fastText.length) {
+      logo.textContent += fastText[i];
+      i++;
+      setTimeout(typeFast, 60);
+    } else {
+      setTimeout(deleteW, 250);
+    }
+  };
 
-    const randomChar = () => {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      return chars.charAt(Math.floor(Math.random() * chars.length));
-    };
+  // 2: slett "w"
+  const deleteW = () => {
+    logo.textContent = logo.textContent.slice(0, -1);
+    setTimeout(addSpace, 160);
+  };
 
-    const scrambleThenReveal = (newText) => {
-      const original = newText;
-      const start = Date.now();
+  // 3: mellomrom
+  const addSpace = () => {
+    logo.textContent += " ";
+    setTimeout(typeRest, 180);
+  };
 
-      return new Promise((resolve) => {
-        const intervalId = setInterval(() => {
-          logo.textContent = original.split('').map(() => randomChar()).join('');
-          if (Date.now() - start >= scrambleDuration) {
-            clearInterval(intervalId);
-            logo.textContent = original;
-            logo.classList.add('bounce');
-            setTimeout(() => {
-              logo.classList.remove('bounce');
-              resolve();
-            }, 300);
-          }
-        }, scrambleInterval);
-      });
-    };
+  // 4: resten
+  const restText = "wigum kjærås";
+  let j = 0;
 
-    const startLoop = async () => {
-      while (true) {
-        await scrambleThenReveal(texts[index]);
-        index = (index + 1) % texts.length;
-        await new Promise(r => setTimeout(r, interval));
-      }
-    };
+  const typeRest = () => {
+    if (j < restText.length) {
+      logo.textContent += restText[j];
 
-    startLoop();
-  });
-  </script>
+      let delay = 85;
+      if (restText[j] === " ") delay += 120;
+
+      j++;
+      setTimeout(typeRest, delay);
+    } else {
+      finishCursor();
+    }
+  };
+
+  // ✨ NY: ekte "Word-style" avslutning
+  const finishCursor = () => {
+    // liten pause så det føles ferdig
+    setTimeout(() => {
+      // vent til cursoren er i "av"-fase av blink
+      setTimeout(() => {
+        cursor.style.display = "none";
+      }, 400); // halv blink-syklus (matcher CSS)
+    }, 250);
+  };
+
+  // start
+  setTimeout(typeFast, 300);
+});
+</script>
+
 </body>
 </html>
