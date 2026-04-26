@@ -1,20 +1,18 @@
 * {
-    font-family:"roboto condensed", sans-serif;
-    letter-spacing: 0.5px;
-    line-height: 1.20;
-    box-sizing: border-box;
-    font-weight: 100;
-   }
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 1.20;
+  box-sizing: border-box;
+  font-weight: 100;
+}
 
 .grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .info {
   font-weight: 200;
- 
 }
 
 .menu {
@@ -36,21 +34,19 @@
   margin-top: 6px;
 }
 
-
 h1, li {
-  font-size: max(16px,min(2.1vw,20px));
+  font-size: max(12px,min(2.1vw,20px));
 }
 
 p {
   margin-top: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: max(12px,min(2.1vw,18px));
+  font-size: max(10px,min(2.1vw,16px));
   font-weight: 100;
 }
 
 a:link {
   text-decoration: none;
-  color: #420F0F;
+  color: black;
   font-weight: 200;
 }
 
@@ -60,16 +56,12 @@ a:active {
 
 a:visited {
   text-decoration: none;
-  color:#420F0F;
+  color:black;
 }
 
 a:hover {
   transition: color 0.2s linear 0.1s;
-  color: #420F0F;
-}
-
-@media only screen and (min-resolution: 150dpi) {
-  /* CSS for high resolution screens */
+  color: black;
 }
 
 @media only screen and (max-width: 370px) {
@@ -77,16 +69,6 @@ a:hover {
     display: grid;
     justify-items: right;
   }
-}
-
-#logo-text {
-  display: inline-block;
-}
-
-@keyframes bounce {
-  0%   { transform: scale(1); }
-  70%  { transform: scale(1.1); }
-  100% { transform: scale(1); }
 }
 
 .logo-container {
@@ -98,38 +80,20 @@ a:hover {
 .logo {
   font-weight: 400;
   font-size: max(16px, min(2.1vw, 20px));
-  text-transform: uppercase;
+  text-transform:capitalize
 }
 
-#toggle-loop {
-  margin-top: 6px;
-  background-color: white;
-  border: 1px solid #420F0F;
-  color: #420F0F;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 300;
-  font-size: max(14px, min(2vw, 18px));
-  display: block;
-  user-select: none;
-  white-space: nowrap;
-  width: max-content;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-align: center;
+#logo-text {
+  font-size: 1.2rem;
+  font-weight:lighter;
+  color:black;
 }
 
-#toggle-loop:hover {
-  background-color: #420F0F;
-  color: white;
-}
 #toggle-loop, .email-button {
   background-color: transparent;
- /* border: 1px solid #9DDEED;*/
-  color: #420F0F;
+  color: black;
   padding: 2px 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 4px;
   font-weight: 300;
   font-size: max(14px, min(2vw, 18px));
@@ -140,25 +104,39 @@ a:hover {
 }
 
 #toggle-loop:hover, .email-button:hover {
-  color: #F7A1C4;
-  text-decoration: none;
+  color: rgb(23, 23, 23);
 }
 
-.logo-row {
-  display: flex;
-  justify-content: space-between; /* tekst til venstre, knapp til høyre */
-  align-items: center; /* justerer på høyden */
-  width: 100%; /* fyller bredden til containeren */
+/* diary */
+.diary-section {
+  margin-top: 4cm;
+  max-width: 600px;
+  margin-left: 0;
 }
 
-#logo-text {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color:#420F0F
+.diary-entry {
+  padding: 1em 0;
 }
 
-#toggle-loop {
-  font-size: 0.9rem;
-  padding: 0.4em 0.8em;
-  cursor: pointer;
+.diary-entry h3 {
+  font-size: max(7px, min(2.1vw, 13px));
+  margin: 0;
+  opacity: 0.7;
+}
+
+.diary-entry p {
+  margin: 0.5em 0 0 0;
+  line-height: 1.5;
+}
+
+/* cursor */
+.cursor {
+  display: inline-block;
+  margin-left: 0; /* FJERNER mellomrom */
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
