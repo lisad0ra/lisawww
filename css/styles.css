@@ -1,142 +1,171 @@
 * {
   font-family: 'Inter', sans-serif;
-  letter-spacing: 0.4px;
-  line-height: 1.20;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
   box-sizing: border-box;
-  font-weight: 100;
+  font-weight: 300;
 }
 
+/* HEADER */
 .grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  background: white;
+  padding: 10px 10px;
+  z-index: 1000;
 }
 
-.info {
-  font-weight: 200;
+
+/* LOGO */
+#logo-text {
+  font-weight: 700 !important;
+  font-size: max(16px, min(2.1vw, 20px));
+  color: #ff3131;
+  text-transform: none;
 }
 
+/* MENU */
 .menu {
   display: flex;
-  justify-content: right;
-  margin-top: 0px;
+  justify-content: flex-end;
 }
 
 .menu li {
   list-style: none;
-  line-height: 1.25;
-  display: inline-block;
-  margin-right: 0px;
-  font-size: max(16px,min(2.1vw,20px));
 }
 
-.mail {
-  margin-right: 0.5%;
-  margin-top: 6px;
-}
-
-h1, li {
-  font-size: max(12px,min(2.1vw,20px));
-}
-
-p {
-  margin-top: 40px;
-  font-size: max(10px,min(2.1vw,16px));
-  font-weight: 100;
-}
-
-a:link {
+/* LINKS */
+a {
   text-decoration: none;
-  color: black;
-  font-weight: 200;
+  color: #420F0F;
 }
 
-a:active {
+/* EMAIL */
+.email-button:hover .mail-word {
+  font-weight: 700;
+}
+
+.spotify-link {
+  position: fixed;
+
+  bottom: 10px;
+  left: 10px;
+
+  color: #420F0F;
   text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-  color:black;
-}
-
-a:hover {
-  transition: color 0.2s linear 0.1s;
-  color: black;
-}
-
-@media only screen and (max-width: 370px) {
-  .menu {
-    display: grid;
-    justify-items: right;
-  }
-}
-
-.logo-container {
-  display: inline-block;
-  text-align: left;
-  position: relative;
-}
-
-.logo {
-  font-weight: 400;
-  font-size: max(16px, min(2.1vw, 20px));
-  text-transform:capitalize
-}
-
-#logo-text {
-  font-size: 1.2rem;
-  font-weight:lighter;
-  color:black;
-}
-
-#toggle-loop, .email-button {
-  background-color: transparent;
-  color: black;
-  padding: 2px 6px;
-  cursor: pointer;
-  border-radius: 4px;
   font-weight: 300;
-  font-size: max(14px, min(2vw, 18px));
-  text-decoration: none;
-  display: inline-block;
-  user-select: none;
-  white-space: nowrap;
+
+  z-index: 1000;
 }
 
-#toggle-loop:hover, .email-button:hover {
-  color: rgb(23, 23, 23);
+.spotify-link:hover {
+  font-weight: 700;
 }
 
-/* diary */
-.diary-section {
-  margin-top: 4cm;
-  max-width: 600px;
-  margin-left: 0;
+/* FLOATING */
+.floating-menu {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-weight: 300;
+
 }
 
-.diary-entry {
-  padding: 1em 0;
+/* HOVER */
+.floating-menu:hover .diary-word {
+  font-weight: 700;
 }
 
-.diary-entry h3 {
-  font-size: max(7px, min(2.1vw, 13px));
-  margin: 0;
-  opacity: 0.7;
-}
+/* OM MEG*/
 
-.diary-entry p {
-  margin: 0.5em 0 0 0;
-  line-height: 1.5;
-}
 
-/* cursor */
+/* CURSOR */
 .cursor {
   display: inline-block;
-  margin-left: 0; /* FJERNER mellomrom */
-  opacity: 1;
+  animation: blink 0.8s infinite;
 }
 
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
+
+.manifest {
+  display: flexbox;
+  flex-wrap: wrap;
+  gap: 0.12em 0.8em;
+
+  max-width: 1500px;
+  min-width: 400px;
+  min-height: 100vh;
+  margin: auto;
+
+  align-content: center;
+
+  padding-left: 12vw;
+  padding-right: 12vw;
+
+  font-size: clamp(1rem, 3vw, 4rem);
+  line-height: 1.4;
+}
+
+
+.name {
+  background: pink;
+  color: #ff3131;
+  font-weight: 500;;
+  padding: 0 0.12em;
+}
+
+.euphoria {
+  text-decoration: underline;
+}
+
+.kjepp {
+  text-decoration:line-through;
+}
+
+
+
+.pelle {
+  position: relative;
+  font-weight: 400;
+}
+
+.pelle-popup {
+  position: absolute;
+
+  width: 250px;
+
+  top: -280px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+
+  z-index: 9999;
+}
+
+.pelle:hover .pelle-popup {
+  opacity: 1;
+}
+
+.huske {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.huske:hover {
+  transform: skew(25deg);
+}
+  
