@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>L.W.K.</title>
-  <meta name="keywords" content="writing, skrive, selvutvikling, vekst, personlig, blog, blogg, design, graphic, designer, grafisk, visuell, kommunikasjon, communicator, visual, lisa, wigum, kjærås">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="favicon2.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
 <body>
   <main>
+
     <div class="grid">
       <div class="logo-container">
-        <div class="logo">
-          <span id="logo-text"></span><span id="cursor" class="cursor blinking">|</span>
-        </div>
-        <div class="info">&nbsp;</div>  
+        <div class="logo"> L.W.K.
+</div>
+
+        <!--AKTIVER DENNE HVIS DU VIL HA LOGO-ANIMASJON-->
+         <!-- <span id="logo-text"></span><span id="cursor" class="cursor">|</span>
+        </div>-->
       </div>                     
 
       <div class="menu">
-        <li><a href="mailto:lisawigum@gmail.com" class="email-button">mail (og sms) er helt ok</a></li>
+        <li>
+          <a href="mailto:lisawigum@gmail.com" class="email-button">
+            <span class="mail-word">e-post</span>
+          </a>
+        </li>
       </div>
     </div>
+    <a href="diary.html" class="floating-menu">
+  <span class="diary-word">dagbok</span>
+</a>
+    <a href="https://open.spotify.com/playlist/4sxM6fSxD5rjicKQlI1j5y?si=92910803e6c74326"
+     class="spotify-link"
+     target="_blank">
+    dopamin
+  </a>
+<section class="manifest">
 
-    <section class="diary-section">
-      <article class="diary-entry">
-        <h3>3. oktober, 2025</h3>
-        <p>Hallo, internett!! Det er meg. Lisa.</p>
-      </article>
-    </section>
+  <span class="name">Lisa&nbsp;Wigum&nbsp;Kjærås</span>
+ <span>lager majonespupper på brødskive med leverpostei,</span>
+  <span>elsker å </span><span class="huske"><em> huske,</em></span>
+  <span>slår tørre <span class="kjepp">kjepper</span> mot trær når hun er sint,</span>
+  <span>ber om unnskyldning til trær når hun ikke er sint,</span>
+  <span>sparer Trumf-poeng,</span>
+  <span>snakker med mat i munnen,</span>
+  <span>hadde nylig en humle som kjæledyr (RIP <span class="pelle">Pelle),
+
+  <img src="bilder/pelle.jpg" alt="pelle" class="pelle-popup">
+</span>
+  
+  
+  
+  <span>hører fortsatt på 
+    <a href="https://open.spotify.com/track/2knr7ikPt4l7bk92qS4ZXW?si=f8284fd5440a46f2Euphoria," class="euphoria" target="_blank">Euphoria</a>,</span>
+  <span>og bruker mye tid på å prøve å forstå alt sammen.</span>
+</section>
   </main>  
 
-<script>
+<!--AKTIVER DENNE HVIS DU VIL HA LOGO-ANIMASJON-->
+  <!--<script>
 window.addEventListener('DOMContentLoaded', () => {
   const logo = document.getElementById('logo-text');
   const cursor = document.getElementById('cursor');
 
-  // 1: skriv "Lisaw" raskt
-  const fastText = "Lisaw";
+  const fastText = "LISAW";
   let i = 0;
 
   const typeFast = () => {
@@ -55,20 +84,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 2: slett "w"
   const deleteW = () => {
     logo.textContent = logo.textContent.slice(0, -1);
     setTimeout(addSpace, 160);
   };
 
-  // 3: mellomrom
   const addSpace = () => {
     logo.textContent += " ";
     setTimeout(typeRest, 180);
   };
 
-  // 4: resten
-  const restText = "wigum kjærås";
+  const restText = "WIGUM KJÆRÅS";
   let j = 0;
 
   const typeRest = () => {
@@ -76,30 +102,27 @@ window.addEventListener('DOMContentLoaded', () => {
       logo.textContent += restText[j];
 
       let delay = 85;
+
+      // pause på mellomrom
       if (restText[j] === " ") delay += 120;
+
+      // ✨ EKSTRA PAUSE før siste bokstav ("S")
+      if (j === restText.length - 2) {
+        delay += 400; // juster 300–600 etter smak
+      }
 
       j++;
       setTimeout(typeRest, delay);
     } else {
-      finishCursor();
+      setTimeout(() => {
+        cursor.style.display = "none";
+      }, 400);
     }
   };
 
-  // ✨ NY: ekte "Word-style" avslutning
-  const finishCursor = () => {
-    // liten pause så det føles ferdig
-    setTimeout(() => {
-      // vent til cursoren er i "av"-fase av blink
-      setTimeout(() => {
-        cursor.style.display = "none";
-      }, 400); // halv blink-syklus (matcher CSS)
-    }, 250);
-  };
-
-  // start
   setTimeout(typeFast, 300);
 });
-</script>
+</script>-->
 
 </body>
 </html>
